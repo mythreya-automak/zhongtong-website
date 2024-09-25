@@ -1,0 +1,92 @@
+/*
+	tt-back-to-top
+*/
+.tt-back-to-top{
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-content: center;
+	-ms-flex-line-pack: center;
+	align-content: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+
+	-webkit-transition: 0.4s;
+	-moz-transition: 0.4s;
+	-ms-transition: 0.4s;
+	transition: 0.4s;
+
+	width: 58px;
+	height: 58px;
+	background-color:$backToTop_bg;
+	color: $backToTop_text;
+	font-size: 0;
+	line-height: 0;
+	position: fixed;
+	bottom: -64px;
+	z-index: 20;
+	@include animation-value(opacity $value_speed);
+	@include radius(50%);
+	@include opacity(0.8);
+	&:before{
+		font-family: $default_font_icon;
+		content: "\e92c";
+		display: block;
+		font-size: 18px;
+		line-height: 1;
+		position: relative;
+		top: -1px;
+		@include animation-value(top 0.2s);
+	}
+	&:hover{
+		background-color:$backToTop_bg_hover;
+		color: $backToTop_text_hover;
+	}
+	&.tt-show{
+		bottom: 50px;
+	}
+	@media (min-width: 1601px){
+		right: 53px;
+	}
+	@media (max-width: 1600px) and (min-width: 576px){
+		right: 28px;
+	}
+	@media (max-width: 768px){
+		width: 43px;
+		height: 43px;
+		&:before{
+			font-size: 12px;
+		}
+		&.tt-show.tt-search-fixed{
+			bottom: 100px;
+		}
+	}
+	@media (max-width: 575px){
+		right: 14px;
+	}
+}
+body:not(.touch){
+	.tt-back-to-top{
+		&:hover{
+			background-color:$backToTop_bg_hover;
+			color: $backToTop_text_hover;
+			@include opacity(1);
+			&:before{
+				top: -4px;
+			}
+		}
+	}
+}
+
+
+

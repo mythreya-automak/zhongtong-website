@@ -1,0 +1,220 @@
+/*
+    Font
+*/
+$default_font:                                      'Open Sans', sans-serif;
+$default_font2:                                     'Montserrat', sans-serif;
+
+/*
+    Default variables
+*/
+$default_font_icon:                                 'carleader';
+$default_bg_color:                                  #ffffff;
+$default_text_color:                                #707070;
+$link_color_base:                                   $default_text_color;
+$simple_links_hover_speed:                          0.2s;
+$default_title_color:                               #222222;
+$defaul_shadow:										#dfdfdf;
+$defaul_shadow_hover:								rgba(221, 61, 83, 0.8);
+$value_speed:			                            $simple_links_hover_speed;
+/* Colors */
+$default_color:                                     #ffc000;
+$default_color2:                                    #222222;
+$border:                                            #dfdfdf;
+/* button */
+$btn_colortext:										#ffffff;
+$btn_colortext_hover:								$btn_colortext;
+$btn_colorbg:										$default_color;
+$btn_colorbg_hover:									$default_color2;
+$btn_color02text:									$default_color2;
+$btn_color02text_hover:								#ffffff;
+$btn_color02bg:										#ffffff;
+$btn_color02bg_hover:								$default_color2;
+$ttlink02_text:										$default_color;
+$ttlink02_text_hover:								#ffffff;
+$ttlink02_icon:										$default_color;
+$ttlink02_icon_hover:								#ffffff;
+
+
+/* back-to-top */
+$backToTop_bg:										$default_color;
+$backToTop_bg_hover:								$default_color;
+$backToTop_text:									#ffffff;
+$backToTop_text_hover:								#ffffff;
+/* modal */
+$modal_btn_close_icon:								#ffffff;
+$modal_btn_close_icon_hover:						$default_color;
+$modal_bg:											#ffffff;
+$modal_backdrop:									#000000;
+/* mainSlide */
+$mainSlider_height_desctop:							890px;
+$mainSlider_height_thetablet:						354px;
+$mainSlider_height_mobile:							149px;
+$mainSlider_text_color:								#ffffff;
+$mainSlide_custom_border:							rgba(255, 255, 255, 0.4);
+/* tooltip */
+$tooltip_bg:										$default_color2;
+$tooltip_text:										#ffffff;
+/*
+	Breadcrumb
+*/
+$breadcrumb_bg:										transparent;
+$breadcrumb_text:									$default_color2;
+$breadcrumb_link:									$default_color2;
+$breadcrumb_link_hover:								$default_color;
+/*
+	magnific popup (portfolio pages)
+*/
+$magnific_popup_bg:												rgba(0, 0, 0, 0.5);
+$magnific_popup_shadow:											rgba(0, 0, 0, 0.3);
+$magnific_popup_arrow_icon: 									#ffffff;
+$magnific_popup_arrow_icon_hover:								$default_color;
+$magnific_popup_bt_close:										#ffffff;
+$magnific_popup_bt_close_hover:									$default_color;
+$magnific_popup_counter:										#ffffff;
+/*
+	form
+*/
+$form_placeholder:									$default_color2;
+$searchfilter_bg:									#1a1a21;
+$searchfilter_icon:									$default_color;
+$searchfilter_icon_bg:								$default_color;
+$select_skin02_bg:									transparent;
+$select_skin02_shadow:								rgba(0, 0, 0, 0.2);
+$select_skin02_text:								$default_color;
+$select_skin02_shadow_hover:						transparent;
+$select_skin02_border:								transparent;
+$select_skin02_border_hover:						transparent;
+$select_skin02_arrow:								#ffffff;
+$select_skin02_dropdown_bg:							#ffffff;
+$select_skin02_dropdown_border:						$select_skin02_border;
+$select_skin02_dropdown_shadow:						$select_skin02_shadow;
+$select_skin02_dropdown_text:						$default_color2;
+$select_skin02_dropdown_link_bg_hover:				$default_color;
+$select_skin02_dropdown_link_text_hover:			#ffffff;
+/* radio */
+$radio_text:                                        $default_color2;
+$radio_text_hover:                                  $default_color;
+$radio_bg:                                          #f7f8fa;
+$radio_bg_active:                                   #7f7f7f;
+$radio_bg_border:                                   #cdcdcd;
+/* checkbox */
+$checkbox_label:                                    $default_text_color;
+$checkbox_bg:                                       #ffffff;
+$checkbox_bg_active:                                transparent;
+$checkbox_border:                                   #d1d1d1;
+$checkbox_icon_active:                              $default_color2;
+$checkbox_label_hover:                              $default_color;
+/*
+Slick
+*/
+$slick_btn_text:									$default_color2;
+$slick_btn_text_hover:							    $default_color;
+$slick_btn_border:									$default_color2;
+$slick_btn_border_hover:							$default_color;
+$slick_dots_bg:										#cfcfcf;
+$slick_dots_bg_hover:								$default_color;
+$slick_dots_bg_active:								$default_color;
+
+$slick_btn_border_color01:							#ffffff;
+$slick_btn_text_color01:							#ffffff;
+
+/*
+Header
+*/
+/*
+    mobile menu
+*/
+$mobile_toggle_menu:											$default_color2;
+$mobile_menu_bg:												#484848;
+$mobile_menu_fullscreen_bg:										rgba(0, 0, 0, 0.55);
+$mobile_menu_btn_text:											#ffffff;
+$mobile_menu_btn_text_hover:									$default_color;
+$mobile_menu_btn_bg:											transparent;
+$mobile_menu_btn_bg_hover:										transparent;
+$mobile_menu_btn_icon:											$mobile_menu_btn_text;
+$mobile_menu_btn_icon_hover:									$mobile_menu_btn_text_hover;
+$mobile_menu_btn_separator:										$border;
+$mobile_menu_close_text:										$mobile_menu_btn_text;
+$mobile_menu_close_text_hover:									$mobile_menu_btn_text_hover;
+$mobile_menu_close_bg:											$mobile_menu_btn_bg;
+$mobile_menu_close_bg_hover:									$mobile_menu_btn_bg_hover;
+$mobile_menu_close_icon:										$mobile_menu_btn_icon;
+$mobile_menu_close_icon_hover:									$mobile_menu_btn_icon_hover;
+$mobile_menu_close_separator:									$mobile_menu_btn_separator;
+$mobile_menu_prev_text:											$mobile_menu_btn_text;
+$mobile_menu_prev_text_hover:									$mobile_menu_btn_text_hover;
+$mobile_menu_prev_bg:											$mobile_menu_btn_bg;
+$mobile_menu_prev_bg_hover:										$mobile_menu_btn_bg_hover;
+$mobile_menu_prev_icon:											$mobile_menu_btn_icon;
+$mobile_menu_prev_icon_hover:									$mobile_menu_btn_icon_hover;
+$mobile_menu_prev_separator:									$mobile_menu_btn_separator;
+$mobile_menu_next_text:											$default_color2;
+$mobile_menu_next_text_hover:									$mobile_menu_btn_text_hover;
+$mobile_menu_next_bg:											$mobile_menu_btn_bg;
+$mobile_menu_next_bg_hover:										$mobile_menu_btn_bg_hover;
+$mobile_menu_next_icon:											$mobile_menu_btn_icon;
+$mobile_menu_next_icon_hover:									$mobile_menu_btn_icon_hover;
+$mobile_menu_next_separator:									$mobile_menu_btn_separator;
+$mobile_menu_original_link_text:								#ffffff;
+$mobile_menu_original_link_text_hover:							$mobile_menu_btn_text_hover;
+$mobile_menu_original_link_bg:									$mobile_menu_btn_bg;
+$mobile_menu_original_link_bg_hover:							$mobile_menu_btn_bg_hover;
+$mobile_menu_original_link_icon:								$mobile_menu_btn_icon;
+$mobile_menu_original_link_icon_hover:							$mobile_menu_btn_icon_hover;
+$mobile_menu_original_link_separator:							$mobile_menu_btn_separator;
+$mobile_menu_link:												#ffffff;
+$mobile_menu_link_hover:										$default_color;
+$mobile_menu_link_bg:											transparent;
+$mobile_menu_link_bg_hover:										transparent;
+$mobile_menu_link_level_01:										$mobile_menu_link;
+$mobile_menu_link_level_01_hover:								$mobile_menu_link_hover;
+$mobile_menu_link_level_01_bg:									$mobile_menu_link_bg;
+$mobile_menu_link_level_01__bg_hover:							$mobile_menu_link_bg_hover;
+$mobile_menu_link_level_01_icon:								$mobile_menu_link_level_01;
+$mobile_menu_link_level_01_icon_hover:							$mobile_menu_link_level_01_hover;
+
+
+/*
+Footer
+*/
+$f_layout_bg:										#1a1a21;
+$f_copyright_bg:									#ffffff;
+$f_copyright_text:									$default_color2;
+$f_copyright_link:									$default_color;
+$f_copyright_link_hover:							$default_color;
+$f_social_icon_text:								#ffffff;
+$f_social_icon_text_hover:							$default_color;
+$f_social_icon_bg:									$default_color;
+$f_social_icon_bg_hover:							#ffffff;
+$f_boxinfo_icon:									$default_color;
+$f_boxinfo_text:									#ffffff;
+$f_boxinfo_link:									$f_boxinfo_text;
+$f_boxinfo_link_hover:								$default_color;
+$f_listinfo_icon:									$default_color;
+$f_listinfo_text:									#ffffff;
+$f_listinfo_link:									$f_listinfo_text;
+$f_listinfo_link_hover:								$default_color;
+$f_newsletterform_placeholder:						#ffffff;
+$f_newsletterform_input_border:						#4d4d53;
+$f_newsletterform_input_border_hover:				$default_color;
+$f_newsletterform_btn_text:							$default_color;
+$f_newsletterform_btn_text_hover:					#ffffff;
+$f_newsletter_errors_bg:							#f8353e;
+$f_newsletter_errors_text:							#ffffff;
+$f_newsletter_errors_icon:							$f_newsletter_errors_text;
+$f_menu_link:										#ffffff;
+$f_menu_link_hover:									$default_color;
+$f_menu_link_active:								$f_menu_link_hover;
+
+
+
+
+.tt-skinSelect-02{
+	.SumoSelect:focus>.CaptionCont,
+	.SumoSelect>.CaptionCont{
+		box-shadow: none !important;
+	}
+	.SumoSelect>.CaptionCont>label:after{
+		border-top-color: $default_color !important;
+	}
+}

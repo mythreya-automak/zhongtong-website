@@ -1,0 +1,208 @@
+<h1 id="jquery-sumoselect">jquery.sumoselect</h1>
+<h2 id="jquery-sumoselect-js-a-beautiful-cross-device-single-multi-select-jquery-select-plugin-">jquery.sumoselect.js - A beautiful cross device Single/Multi Select jQuery Select plugin.</h2>
+<p>A jQuery plugin that progressively enhances an HTML Select Box into a Single/Multiple option dropdown list. The dropdown list can be fully customizable using simple css.
+It can adapt itself according to any device, keeping in mind that the User Experience is not broken. </p>
+<p>View Live <a href="http://hemantnegi.github.io/jquery.sumoselect/sumoselect_demo.html">Demo Here</a></p>
+<p>Documentaion <a href="http://hemantnegi.github.io/jquery.sumoselect/">Documentation Here</a></p>
+<p>Latest stable :  <a href="https://github.com/HemantNegi/jquery.sumoselect/releases">Download from here</a></p>
+<p><strong>CDNJS</strong></p>
+<p>The folks at CDNJS host a copy of the library. The CDN is updated after the release is made public, which means there is a delay between the publishing of a release and its availability on the CDN, so keep that in mind. Just use these links:</p>
+<pre><code class="lang-html">&lt;!-- Latest compiled and minified CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/sumoselect.min.css&quot;&gt;
+
+&lt;!-- Latest compiled and minified JavaScript --&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/jquery.sumoselect.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><strong>Notable Features</strong></p>
+<ul>
+<li><p>Inline Search.</p>
+</li>
+<li><p>Optgroup support.</p>
+</li>
+<li><p>Single and Multi select option.</p>
+</li>
+<li><p>Fully customizable by simple css.</p>
+</li>
+<li><p>Supports almost all devices.</p>
+</li>
+<li><p>Intelligently Renders itself according to the devices.</p>
+</li>
+<li><p>Renders native Single/Multiple pop up on Android, ios, Windows and other devices.</p>
+</li>
+<li><p>Custom postback data format (Multiple select data can be passed either as csv or default select)</p>
+</li>
+<li><p>Selected, Disabled, and Placeholder Support</p>
+</li>
+<li><p>Easily extendable to allow developers to create new widgets</p>
+</li>
+</ul>
+<p><strong>Update v1.1.0</strong></p>
+<ul>
+<li><p>Wraped all properties in a sumo object connected to native select element.</p>
+</li>
+<li><p>Added standard add, remove, select, unselect, disable, eanble, unload etc. methods for better manipulation</p>
+</li>
+<li><p>Instance of SumoSelect can be accessed from native reference of select element</p>
+</li>
+<li><p><del>Added <code>disabled = true</code> to disable/ enable the control.</del> Now its <code>enable()</code> and <code>disable()</code> </p>
+</li>
+<li><p>Bug fixings..</p>
+</li>
+</ul>
+<p><strong>Update v1.2.0</strong></p>
+<ul>
+<li><p>Added a new option for custom dispaly formats</p>
+</li>
+<li><p>Now <code>outputAsCSV</code> is default set to <code>false</code></p>
+</li>
+<li><p>fixed problems with unload and other handler methods on mobile deveices</p>
+</li>
+<li><p>Bug fixings..</p>
+</li>
+</ul>
+<p><strong>Update v2.0.0</strong></p>
+<ul>
+<li><p>Added tabindex and keyboard navigation support</p>
+</li>
+<li><p>Added select all feature</p>
+</li>
+<li><p>Redesigned the UI (No external icons are used now and color scheme can be controlled by css)</p>
+</li>
+<li><p>Added some really useful new methods like <code>reload(), selectAll(), unSelectAll(), enable(), disable()</code></p>
+</li>
+<li><p>Better rensponse to lost focus and other events and non recognised devices.</p>
+</li>
+<li><p>Lots of bug Fixings..</p>
+</li>
+</ul>
+<p><strong>Update v3.0.0</strong></p>
+<ul>
+<li><p>Support for searching added.</p>
+</li>
+<li><p>Optgroup support added</p>
+</li>
+<li><p>Restructured markup</p>
+</li>
+<li><p>Direction of select is controllable by settings.</p>
+</li>
+<li><p>All the text can be customized (better localization support).</p>
+</li>
+<li><p>Lots of bug Fixings..</p>
+</li>
+</ul>
+<h2 id="requirements">Requirements</h2>
+<p>jQuery 1.8.3+ (It is always recommended to use the latest version of jQuery)</p>
+<h2 id="desktop-browser-support">Desktop Browser Support</h2>
+<p>IE8+, Firefox 4+, Chrome, Safari 4+, Opera 11+ (Other browsers may work, but I did not test on them)</p>
+<h2 id="mobile-tablet-browser-support">Mobile/Tablet Browser Support</h2>
+<p>iOs 3+, Android 2.1+ , Windows Mobile (Other browsers may work, but I did not test on them)</p>
+<h2 id="forking">Forking</h2>
+<p>If you find that you need a feature that SumoSelect does not currently support, either let me know via the SumoSelect issue tracker, or fork SumoSelect on Github and easily extend SumoSelect to create your own widget!</p>
+<h2 id="usage">Usage</h2>
+<p><em>To just go with the default options simply do</em></p>
+<pre><code class="lang-javascript"> $(document).ready(function () {
+            $(&#39;.SlectBox&#39;).SumoSelect();
+     });
+</code></pre>
+<p><em>To provide optional settings, simply pass settings object to SumoSelect()</em></p>
+<pre><code class="lang-javascript"> $(document).ready(function () {
+            $(&#39;.SlectBox&#39;).SumoSelect({placeholder: &#39;This is a placeholder&#39;, csvDispCount: 3 });
+        });
+</code></pre>
+<p>If you want a instance to the SumoSelect object to call handler methods</p>
+<pre><code class="lang-javascript"> var MySelect;
+ $(document).ready(function () {
+         MySelect = $(&#39;.SlectBox&#39;).SumoSelect();
+     });
+</code></pre>
+<p><em>NOTE: SumoSelect returns an array of select elements if there are more than one in the matching selector.</em></p>
+<p>You can also find the instance to SumoSelect object by directly selecting your select element like</p>
+<pre><code class="lang-javascript">    $(&#39;select.SlectBox&#39;)[0].sumo. .....
+</code></pre>
+<p>You can perform all the operations on underlying original select and then reload the UI by </p>
+<pre><code class="lang-javascript">    $(&#39;select.SlectBox&#39;)[0].sumo.reload();
+</code></pre>
+<h5 id="you-can-bind-your-handlers-to-some-sumoselect-specific-events-eg-">You can bind your handlers to some sumoselect specific events eg.</h5>
+<pre><code class="lang-javascript">$(&#39;select.SlectBox&#39;).on(&#39;sumo:opened&#39;, function(sumo) {
+   // Do stuff here
+   console.log(&quot;Drop down opened&quot;, sumo)
+});
+</code></pre>
+<p>Available events</p>
+<ul>
+<li><code>sumo:opened</code></li>
+<li><code>sumo:opening</code></li>
+<li><code>sumo:closing</code></li>
+<li><code>sumo:closed</code></li>
+</ul>
+<p><strong>Settings</strong></p>
+<p>The following settings are available now:</p>
+<ul>
+<li><p><code>placeholder</code> <code>(string)</code>  The palceholder text to be displayed in the rendered select widget (on priority basis). <em>Maximum priority is given to native placeholder attribute in select tag i.e.  - <code>&lt;select placeholder=&quot;this is a placeholder&quot; /&gt;</code>  - Then the option with disabled and selected attribute i.e. <code>&lt;option disabled selected value=&quot;foo&quot; &gt;</code>  - Last to to the given placeholder attribute in the settings. </em></p>
+</li>
+<li><p><code>csvDispCount</code> <code>(int)</code>  The number of items to be displayed in the widget seperated by a <code>,</code> after that the text will be warped as <em>3+ Selected</em>. Set <code>0</code> for all the options.</p>
+</li>
+<li><p><code>captionFormat</code> <code>(string)</code> Its the format in which you want to see the caption when more than csvDispCount items are selected. its default value is <code>&#39;{0} Selected&#39;</code> ( here <code>{0}</code> will be replaced by the seletion count )</p>
+</li>
+<li><p><code>captionFormatAllSelected</code> <code>(string)</code> Format of caption text when all elements are selected. set null to use captionFormat. It will not work if there are disabled elements in select. default is <code>&#39;{0} all selected!&#39;</code></p>
+</li>
+<li><p><code>floatWidth</code> <code>(int)</code> Minimum screen width of device below which the options list is rendered in floating popup fashion.</p>
+</li>
+<li><p><code>forceCustomRendering</code>  <code>(boolean)</code> Force the custom modal ( Floating list ) on all devices below floatWidth resolution.</p>
+</li>
+<li><p><code>nativeOnDevice</code>  <code>(Array[string])</code> The keywords to identify a mobile device from useragent string. The system default select list is rendered on the matched device.</p>
+</li>
+<li><p><code>outputAsCSV</code> <code>(boolean)</code> <code>true</code> to POST data as csv ( false for deafault select )</p>
+</li>
+<li><p><code>csvSepChar</code> <code>(string)</code>  Seperation char if <code>outputAsCSV</code>  is set to <code>true</code></p>
+</li>
+<li><p><code>okCancelInMulti</code> <code>(boolean)</code> Displays Ok Cancel buttons in desktop mode multiselect also.</p>
+</li>
+<li><p><code>isClickAwayOk</code> <code>(boolean)</code> for okCancelInMulti=true. sets whether click outside will trigger Ok or Cancel (default is cancel).</p>
+</li>
+<li><p><code>triggerChangeCombined</code> <code>(boolean)</code> In Multiselect mode whether to trigger change event on individual selection of each item or on combined selection ( pressing of OK or Cancel button ).</p>
+</li>
+<li><p><code>selectAll</code> <code>(boolean)</code> To display select all check or not</p>
+</li>
+<li><p><code>search</code> <code>(boolean)</code>  To enable searching in sumoselect (default is false).</p>
+</li>
+<li><p><code>searchText</code> <code>(string)</code>  placeholder for search input.</p>
+</li>
+<li><p><code>noMatch</code> <code>(string)</code>  placeholder to display if no itmes matches the search term (default &#39;No matches for &quot;{0}&quot;&#39;).</p>
+</li>
+<li><p><code>prefix</code> <code>(string)</code>  prefix to prepend the selected text (default is empty) eg. &#39;<b>Hello</b>&#39;.</p>
+</li>
+<li><p><code>locale</code> <code>(array)</code>  change the text used in plugin (<code>[&#39;OK&#39;, &#39;Cancel&#39;, &#39;Select All&#39;]</code>). Note: don&#39;t break the sequence or skip items. </p>
+</li>
+<li><p><code>up</code> <code>(boolean)</code>   the direction in which to open the dropdown (default: false)</p>
+</li>
+<li><p><code>showTitle</code> <code>(boolean)</code> set to false to prevent title (tooltip) from appearing (deafult <code>true</code>)</p>
+</li>
+</ul>
+<p><strong>The default settings are :</strong></p>
+<pre><code class="lang-javascript">{
+    placeholder: &#39;Select Here&#39;,
+    csvDispCount: 3,
+    captionFormat:&#39;{0} Selected&#39;, 
+    captionFormatAllSelected:&#39;{0} all selected!&#39;,
+    floatWidth: 400,
+    forceCustomRendering: false,
+    nativeOnDevice: [&#39;Android&#39;, &#39;BlackBerry&#39;, &#39;iPhone&#39;, &#39;iPad&#39;, &#39;iPod&#39;, &#39;Opera Mini&#39;, &#39;IEMobile&#39;, &#39;Silk&#39;],
+    outputAsCSV: false,
+    csvSepChar: &#39;,&#39;,
+    okCancelInMulti: false,
+    isClickAwayOk: false,
+    triggerChangeCombined: true,
+    selectAll: false,
+    search: false,
+    searchText: &#39;Search...&#39;,
+    noMatch: &#39;No matches for &quot;{0}&quot;&#39;,
+    prefix: &#39;&#39;,
+    locale: [&#39;OK&#39;, &#39;Cancel&#39;, &#39;Select All&#39;],
+    up: false,
+    showTitle: true
+}
+</code></pre>
+<p><a href="http://hemantnegi.github.io/jquery.sumoselect/">Furthur Documentation</a></p>
+<h2 id="license">License</h2>
+<p>Copyright (c) 2016 Hemant Negi Licensed under the MIT license.</p>

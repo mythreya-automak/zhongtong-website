@@ -1,0 +1,101 @@
+#tt-pageContent{
+	> *{
+		position: relative;
+	}
+	.container{
+		@media (max-width: 767px){
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+	}
+	> *:not(.no-margin)[class^="container-indent"]:first-child{
+		@media (max-width: 1024px){
+			margin-top: 25px;
+		}
+		@media (max-width: 767px){
+			margin-top: 17px;
+		}
+	}
+}
+/*
+	Section Indent
+*/
+.container-indent:not(.no-margin){
+	@media (min-width: 1025px){
+		margin-top:124px;
+	}
+	@media (max-width: 1024px){
+		margin-top:80px;
+	}
+	@media (max-width: 575px){
+		margin-top:60px;
+	}
+}
+
+
+/*
+	Inner
+*/
+.container-inner{
+	@media (min-width: 1025px){
+		padding:124px 0;
+	}
+	@media (max-width: 1024px){
+		padding:80px 0;
+	}
+	@media (max-width: 575px){
+		padding:60px 0;
+	}
+}
+
+
+.divider{
+	height: 40px;
+	clear: both;
+	overflow: hidden;
+	width: 100%;
+	&.divider-lg {
+		height: 45px;
+	}
+	&.divider-sm{
+		height: 30px;
+	}
+}
+p + .divider{
+	height: 12px;
+}
+
+.visible-xs, .visible-sm, .visible-md, .visible-lg, .visible-xl {
+  display: none;
+}
+@media (max-width: 796px){
+	.visible-xs{
+		display: block !important;
+	}
+}
+@media (max-width: 766px){
+	.hidden-xs{
+		display: none !important;
+	}
+}
+
+
+@media (min-width: 1230px){
+	.hidden-xl{
+		display: none !important;
+	}
+}
+@media (max-width: 1229px) and (min-width: 1025px){
+	.hidden-lg{
+		display: none !important;
+	}
+}
+.margin-indent01{
+	margin-top: -50px;
+	@media (max-width: 1229px){
+		margin-top: -60px;
+	}
+	@media (max-width: 1024px){
+		margin-top: -109px;
+	}
+}

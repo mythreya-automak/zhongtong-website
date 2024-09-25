@@ -1,0 +1,102 @@
+/*---------------------------------------*/
+/*--------   Table of contents   --------*/
+/*
+1. Variable
+2. Mixin
+3. External module
+	3.1 Bootstrap
+	3.3 Slider Slick
+	3.3 Magnific popup
+	3.4 Slider price
+	3.5 datepicker
+	3.6 perfect scrollbar
+3. Fonts icons
+4. Typography
+5. Header
+6. Content layout
+7. Modal
+8. Back To Top
+9. breadcrumbs
+10. Blog
+11. Footer
+12. Section
+13. Parallax
+---------------------------------------*/
+
+/*---------------------------------------*/
+/*--------     1. Variable       ------*/
+/*---------------------------------------*/
+@import "module_variable.scss";
+/*---------------------------------------*/
+/*--------     2. Mixin          --------*/
+/*---------------------------------------*/
+@import "module_mixin.scss";
+/*---------------------------------------*/
+/*--------   3. External module  --------*/
+/*---------------------------------------*/
+/*-------  3.1 Bootstrap  --------*/
+@import "../external/bootstrap/scss/bootstrap.scss";
+/*-------  3.2 Slider Slick  --------*/
+@import "../external/slick/slick.scss";
+/*-------  3.3 Magnific popup  --------*/
+@import "../external/magnific-popup/magnific-popup.scss";
+/*-------  3.4 Slider price  --------*/
+@import "module_nouislider.scss";
+/*-------  3.5 datepicker  --------*/
+@import "../external/bootstrap-datepicker/datepicker.scss";
+/*-------  3.6 perfect scrollbar  --------*/
+@import "../external/perfect-scrollbar/perfect-scrollbar.scss";
+/*-------  3.7 sumoselect  --------*/
+@import "../external/sumoselect/sumoselect.scss";
+/*---------------------------------------*/
+/*--------     3. Fonts icons    --------*/
+/*---------------------------------------*/
+@import "../font/style.scss";
+/*---------------------------------------*/
+/*-------      4. Typography        -----*/
+/*---------------------------------------*/
+@import "module_typography.scss";
+/*---------------------------------------*/
+/*--------     5. Header         --------*/
+/*---------------------------------------*/
+@import "module_header.scss";
+@import "module_main_slider.scss";
+/*---------------------------------------*/
+/*--------  6. Content layout    --------*/
+/*---------------------------------------*/
+@import "content_layout.scss";
+@import "module_listing.scss";
+/*---------------------------------------*/
+/*--------   7. Modal            --------*/
+/*---------------------------------------*/
+@import "module_modal.scss";
+/*---------------------------------------*/
+/*--------   8. Back To Top      --------*/
+/*---------------------------------------*/
+@import "module_back_to_top.scss";
+/*---------------------------------------*/
+/*--------   9. breadcrumbs      --------*/
+/*---------------------------------------*/
+@import "module_breadcrumb.scss";
+/*---------------------------------------*/
+/*--------   10. Blog             --------*/
+/*---------------------------------------*/
+@import "module_blog.scss";
+/*---------------------------------------*/
+/*--------      11. Footer        --------*/
+/*---------------------------------------*/
+@import "module_footer.scss";
+/*---------------------------------------*/
+/*--------     12. Section       --------*/
+/*---------------------------------------*/
+@import "section_indent.scss";
+@import "section_wrapper.scss";
+/*---------------------------------------*/
+/*--------     13. Parallax       --------*/
+/*---------------------------------------*/
+@import "parallax.scss";
+
+
+
+
+@import "module_demo_switch.scss";
