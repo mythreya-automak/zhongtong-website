@@ -1,5 +1,7 @@
 
-const baseUrl = 'http://localhost:3000/zhongtong/';
+// const baseUrl = 'http://localhost:3000/zhongtong/';
+
+const baseURL = basePath + '/zhongtong/'
 
 document.addEventListener('DOMContentLoaded',function(){
     const form = document.getElementById('contactform');
@@ -35,7 +37,7 @@ document.addEventListener('DOMContentLoaded',function(){
             }
     
     
-            fetch('http://localhost:3000/zhongtong/submit-enquiry',{
+            fetch(baseURL + 'submit-enquiry',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',
@@ -96,7 +98,7 @@ if (form === 'enquiry1') {
       }else{
         errorMessage.style.display = 'none';
 
-        fetch('http://localhost:3000/zhongtong/model-submit',{
+        fetch(baseURL + 'model-submit',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -144,7 +146,7 @@ if (form === 'enquiry1') {
       }else{
         errorMessage.style.display = 'none';
 
-        fetch('http://localhost:3000/zhongtong/model-submit',{
+        fetch(baseURL + 'model-submit',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -204,7 +206,7 @@ if (form === 'enquiry1') {
                 errorMessage.style.display = 'block';
             }else{
                 errorMessage.style.display = 'none';
-                fetch('http://localhost:3000/zhongtong/submit-quote',{
+                fetch(baseURL + 'submit-quote',{
                     method:'POST',
                     headers:{
                         'Content-Type':'application/json'
@@ -269,7 +271,7 @@ if (form === 'enquiry1') {
 
                 errorMessage.style.display = 'none';
 
-                fetch('http://localhost:3000/zhongtong/submit-testdrive',{
+                fetch(baseURL + 'submit-testdrive',{
                     method:'POST',
                     headers:{
                         'Content-Type':'application/json'
@@ -332,7 +334,7 @@ if (form === 'enquiry1') {
         else{
             errorMessage.style.display = 'none';
 
-            fetch('http://localhost:3000/zhongtong/submit-service',{
+            fetch(baseURL + 'submit-service',{
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json'
