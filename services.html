@@ -10,10 +10,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;600;700&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="./httpServices.js" defer></script>
 </head>
 
 <body>
@@ -175,11 +174,11 @@
 		</div>
 	</div>
 	<div id="tt-pageContent">
-		<div class="container-indent no-margin container-inner tt-layout02-01">
+		<div class="container-indent no-margin container-inner ">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<img class="d-block d-md-none" src="images/custom/layout02-01.jpg" alt="">
+						<img class="d-block d-md" src="images/custom/vision.jpg" alt="">
 					</div>
 					<div class="divider divider-md d-block d-md-none"></div>
 					<div class="col-md-6">
@@ -214,12 +213,12 @@
 				</div>
 				<div class="js-carousel-news tt-arrow-bottom">
 					<div>
-						<a href="services-item.html" target="_blank" class="tt-media-03">
+						<a href="all-models.html" target="_blank" class="tt-media-03">
 							<div class="tt-img">
-								<img src="images/custom/services-img-01.jpg" alt="">
+								<img src="images/custom/test_drive.jpg" alt="">
 							</div>
 							<div class="tt-layout">
-								<h3 class="tt-title">Pre-Sale Preparation</h3>
+								<h3 class="tt-title">Test Drive</h3>
 								<p>
 									We can help you make your car look as good as possible before anyone comes to see it
 								</p>
@@ -230,12 +229,13 @@
 						</a>
 					</div>
 					<div>
-						<a href="services-item.html" target="_blank" class="tt-media-03">
+						<a href="#" data-toggle="modal"
+						data-target="#modalAddTestDrive" class="tt-media-03">
 							<div class="tt-img">
-								<img src="images/custom/services-img-02.jpg" alt="">
+								<img src="images/custom/service.jpg" alt="">
 							</div>
 							<div class="tt-layout">
-								<h3 class="tt-title">Financing</h3>
+								<h3 class="tt-title">Book a Service</h3>
 								<p>
 									We're able to offer financing rates that many other car dealers can't offer.
 								</p>
@@ -245,7 +245,7 @@
 							</div>
 						</a>
 					</div>
-					<div>
+					<!-- <div>
 						<a href="services-item.html" target="_blank" class="tt-media-03">
 							<div class="tt-img">
 								<img src="images/custom/services-img-03.jpg" alt="">
@@ -277,7 +277,7 @@
 								</div>
 							</div>
 						</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -445,58 +445,48 @@
 				<p>
 					Please complete the form below and an we will contact you to arrange your service.
 				</p>
-				<form>
+				<form id="bookService" method="post" action="#">
 					<div class="tt-form-default">
 						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your name*">
+							<input type="text" name="name" class="form-control" placeholder="Your name*" id="bs_name">
 						</div>
 						<div class="row">
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="email" name="name" class="form-control" placeholder="E-mail*">
+									<input type="email" name="name" class="form-control" placeholder="E-mail*" id="bs_email">
 								</div>
 							</div>
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="text" name="name" class="form-control" placeholder="Phone #">
+									<input type="text" name="name" class="form-control" placeholder="Phone #" id="bs_phone">
 								</div>
 							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<select class="form-group" id="bs_model" required >
+										<option disabled="disabled" selected="selected" Value="General Enquiry">Select a Model</option>
+										<!--placeholder-->
+										<option value="Luxury Business Bus (27+1 -seater)">Luxury Business Bus (27+1 -seater)</option>
+										<option value="Coach Bus (49+1+1 -seater)">Coach Bus (49+1+1 -seater)</option>
+										<option value="City Bus (30-seater)">City Bus (30-seater)</option>
+										<option value="City Bus (45-seater)">City Bus (45-seater)</option>
+										<option value="Staff Bus (35+1-seater)">Staff Bus (35+1-seater)</option>
+										<option value="School Bus (18-28 seater)">School Bus (18-28 seater)</option>
+										<option value="School Bus (40-seater)">School Bus (40-seater)</option>
+										<option value="Labour Bus (55+1 -seater)">Labour Bus (55+1 -seater)</option>
+									</select>
+								</div>
+							</div>
+
 						</div>
 					</div>
 					<h6 class="tt-title">Preferred date and time of service</h6>
 					<div class="tt-row-calendar tt-form-default tt-skinSelect-01">
-						<input type="text" name="name" class="form-control" placeholder="12 / 12 / 2018">
-						<select class="tt-select">
-							<option value="01" disabled selected>12</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-						<span class="tt-text-separator">:</span>
-						<select class="tt-select">
-							<option value="01" disabled selected>30</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
+						<input type="datetime-local" name="name" class="form-control" id="bs_date">
 					</div>
-					<ul class="list-form-column">
-						<li>
-							<div class="checkbox-group">
-								<input type="checkbox" id="checkBox12" name="checkbox" checked>
-								<label for="checkBox12">
-								<span class="check"></span>
-								<span class="box"></span>
-								I agree to receive emails from ZhongTong
-								</label>
-							</div>
-						</li>
-					</ul>
-					<a href="#" class="btn">submit</a>
+					<button class="btn" type="submit" value="submit">Submit</button>
+					<p id="txtSuccessMessage" style="color:green;padding-top:10px;padding-bottom:10px;display: none;"> Submitted Successfully</p>
+					<p id="txtErrorBookService" style="color:red;padding-top:10px;padding-bottom:10px;display: none;"> Please fill all the required fields *</p>
 				</form>
 			</div>
 		</div>

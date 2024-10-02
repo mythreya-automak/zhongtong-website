@@ -11,33 +11,11 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="./httpServices.js"></script>
 </head>
 <body>
 
-		<!-- sticky button  -->
-		<ul class="social-media-container">
-			<li class="social-media blog">
-				<i class="fa fa-file-text-o"></i>
-				<a href="all-models.html">Request A Quote</a>
-			</li>
-			<li class="social-media pinterest">
-				<i class="fa fa-clock-o"></i>
-				<a class="popup-with-zoom-anim" href="#" data-toggle="modal" data-target="#modalBookService">Book A Service</a>
-			</li>
-			<li class="social-media linkedin">
-				<i class="fa Example of phone fa-phone"></i>
-				<a href="contact.html">Contact Us</a>
-			</li>
-			<li class="social-media instagram">
-				<i class="fa fa-map-marker"></i>
-				<a href="contact.html">Locate Us</a>
-			</li>
-			<li class="social-media linkedin">
-				<i class="fa fa-whatsapp"></i>
-				<a href="https://wa.link/7g7hz7" target="_blank">Whatsapp</a>
-			</li>
-		</ul>
-		<!-- stcky button ends here	 -->
+		
 	
 
 <!-- tt-mobile menu -->
@@ -643,59 +621,40 @@
 				<p>
 					Please complete the form below and an we will contact you to arrange your test drive.
 				</p>
-				<h2 style="color: red;">Model XYZ</h2>
-				<form>
+				<h2 style="color: red;"></h2>
+				<form id="requestDrive" method="post" action="#">
 					<div class="tt-form-default">
 						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your name*">
+							<input type="text" name="name" class="form-control" placeholder="Your name*" id="td_name">
 						</div>
 						<div class="row">
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="email" name="name" class="form-control" placeholder="E-mail*">
+									<input type="email" name="name" class="form-control" placeholder="E-mail*" id="td_email">
 								</div>
 							</div>
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="text" name="name" class="form-control" placeholder="Phone #">
+									<input type="text" name="name" class="form-control" placeholder="Phone*" id="td_phone">
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<input type="text" name="model" id ="td_model" class="form-control" disabled="disabled">
 								</div>
 							</div>
 						</div>
 					</div>
-					<h6 class="tt-title">Preferred date and time of Test Drive</h6>
+					<h6 class="tt-title">Preferred date and time of Test Drive*</h6>
 					<div class="tt-row-calendar tt-form-default tt-skinSelect-01">
-						<input type="text" name="name" class="form-control" placeholder="12 / 12 / 2018">
-						<select class="tt-select">
-							<option value="01" disabled selected>12</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-						<span class="tt-text-separator">:</span>
-						<select class="tt-select">
-							<option value="01" disabled selected>30</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
+						<input type="datetime-local" name="date" class="form-control" id="td_date" placeholder="Test drive date">
+					
 					</div>
-					<ul class="list-form-column">
-						<li>
-							<div class="checkbox-group">
-								<input type="checkbox" id="checkBox12" name="checkbox" checked>
-								<label for="checkBox12">
-								<span class="check"></span>
-								<span class="box"></span>
-								I agree to receive emails from ZhongTong
-								</label>
-							</div>
-						</li>
-					</ul>
-					<a href="#" class="btn">submit</a>
+					
+					<button type="submit" class="btn" value="submit">submit</button>
+					<p id="txtSucces" style="color:green;padding-top:10px;padding-bottom:10px;display: none;"> Submitted Successfully</p>
+					<p id="txtErrorTestDrive" style="color:red;padding-top:10px;padding-bottom:10px;display: none;"> Please fill all the required fields *</p>
+
 				</form>
 			</div>
 		</div>
@@ -711,117 +670,45 @@
 				<p class="tt-default-color02">
 					What price do you think is more appropriate?
 				</p>
-				<h2 style="color: red;">Model XYZ</h2>
-				<form>
+				<h2 style="color: red;" id="modelTitle"></h2>
+				<form id="quoteRequest" method="post" action="#">
 					<div class="tt-form-default">
 						<div class="form-group">
-							<input type="text" name="price" class="form-control" placeholder="Your offer price">
+							<input type="text" name="name" class="form-control" placeholder="Your name*" id="name">
 						</div>
 						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your name*">
+							<input type="email" name="email" class="form-control" placeholder="E-mail*" id="email">
 						</div>
 						<div class="row">
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="email" name="name" class="form-control" placeholder="E-mail*">
+									<input type="text" name="phone" class="form-control" placeholder="Phone*" id="phone">
 								</div>
 							</div>
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="text" name="comments" class="form-control" placeholder="Additional notes / Comments">
+									<input type="text" name="model" id ="model" class="form-control" disabled="disabled">
 								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<input type="text" name="price" class="form-control" placeholder="Your offer price">
-						</div>
-					</div>
-					<ul class="list-form-column">
-						<li>
-							<div class="checkbox-group">
-								<input type="checkbox" id="checkBox13" name="checkbox" checked>
-								<label for="checkBox13">
-								<span class="check"></span>
-								<span class="box"></span>
-								I agree to receive emails from ZhongTong
-								</label>
+							<div class="col-12">
+								<div class="form-group">
+									<input type="text" name="comments" id ="message" class="form-control" placeholder="Additional notes / Comments">
+								</div>
 							</div>
-						</li>
-					</ul>
-					<a href="#" class="btn">make an offer</a>
+						
+					</div>
+					</div>
+					
+					<button type="submit" value="submit" class="btn">Make An Offer</button>
+					<p id="txtSuccess" style="color:green;padding-top:10px;padding-bottom:10px;display: none;"> Submitted Successfully</p>
+					<p id="txtErrorQuote" style="color:red;padding-top:10px;padding-bottom:10px;display: none;"> Please fill all the required fields *</p>
+
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
-<!-- modal (Book Service) -->
-<div class="modal fade" id="modalBookService" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-md">
-		<div class="modal-content ">
-			<div class="modal-body modal-layout-dafault">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon-close"></span></button>
-				<h5 class="modal-title">Book a Service</h5>
-				<p>
-					Please complete the form below and an we will contact you to arrange your service.
-				</p>
-				<h2 style="color: red;">Model XYZ</h2>
-				<form>
-					<div class="tt-form-default">
-						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your name*">
-						</div>
-						<div class="row">
-							<div class="col-12 col-sm-6">
-								<div class="form-group">
-									<input type="email" name="name" class="form-control" placeholder="E-mail*">
-								</div>
-							</div>
-							<div class="col-12 col-sm-6">
-								<div class="form-group">
-									<input type="text" name="name" class="form-control" placeholder="Phone #">
-								</div>
-							</div>
-						</div>
-					</div>
-					<h6 class="tt-title">Preferred date and time of service</h6>
-					<div class="tt-row-calendar tt-form-default tt-skinSelect-01">
-						<input type="text" name="name" class="form-control" placeholder="12 / 12 / 2018">
-						<select class="tt-select">
-							<option value="01" disabled selected>12</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-						<span class="tt-text-separator">:</span>
-						<select class="tt-select">
-							<option value="01" disabled selected>30</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-					</div>
-					<ul class="list-form-column">
-						<li>
-							<div class="checkbox-group">
-								<input type="checkbox" id="checkBox12" name="checkbox" checked>
-								<label for="checkBox12">
-								<span class="check"></span>
-								<span class="box"></span>
-								I agree to receive emails from ZhongTong
-								</label>
-							</div>
-						</li>
-					</ul>
-					<a href="#" class="btn">submit</a>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+
 
 <script>
 
@@ -831,9 +718,9 @@
 	  description:"(27+1 -seater)",
 	  images: {
 		imageUrl1:"images/product_02/luxury_bus.jpg",
-        imageUrl2:"images/product_02/luxury_bus.jpg",
+        imageUrl2:"images/product_02/luxury_bus2.jpg",
 		imageUrl3:"images/product_02/luxury_int_1.jpg",
-        imageUrl4:"images/product_02/luxury_int_1.jpg"
+        imageUrl4:"images/product_02/luxury_int_2.jpg"
 	  },
 	  price:"KWD 10,295",oldPrice:"",
       vehicleDetails :{
@@ -863,9 +750,9 @@
 	  description:"(35+1-seater) ",
 	  images: {
 		imageUrl1:"images/product_02/staff_bus.jpg",
-        imageUrl2:"images/product_02/staff_bus.jpg",
-		imageUrl3:"images/product_02/luxury_int_1.jpg",
-        imageUrl4:"images/product_02/luxury_int_1.jpg"
+        imageUrl2:"images/product_02/staff_bus_int1.jpg",
+		imageUrl3:"images/product_02/staff_bus_int2.jpg",
+        imageUrl4:""
 	  },
 	  price:"KWD 102,100",oldPrice:"KWD 99,625",
       vehicleDetails :{
@@ -893,9 +780,9 @@
 	  description:"(49+1+1-seater) ",
 	  images: {
 		imageUrl1:"images/product_02/coach_bus.jpg",
-        imageUrl2:"images/product_02/coach_bus.jpg",
-		imageUrl3:"images/product_02/coach_bus1_int1.jpg",
-        imageUrl4:"images/product_02/coach_bus1_int2.jpg"
+        imageUrl2:"images/product_02/coach_bus1_int1.jpg",
+		imageUrl3:"images/product_02/coach_bus1_int2.jpg",
+        imageUrl4:""
 	  },
 	  price:"KWD 48,430",oldPrice:"KWD 51,210",
       vehicleDetails :{
@@ -953,9 +840,9 @@
 	  description:"(18-28 seater) ",
 	  images: {
 		imageUrl1:"images/product_02/school_bus1.png",
-        imageUrl2:"images/product_02/school_bus1.png",
-		imageUrl3:"images/product_02/school_bus1_int1.jpg",
-        imageUrl4:"images/product_02/school_bus1_int2.jpg"
+        imageUrl2:"images/product_02/school_bus1_int1.jpg",
+		imageUrl3:"images/product_02/school_bus1_int2.jpg",
+        imageUrl4:""
 	  },
 	  price:"KWD 12,450",oldPrice:"",
       vehicleDetails :{
@@ -983,8 +870,8 @@
 	  description:"(40-seater) ",
 	  images: {
 		imageUrl1:"images/product_02/school_bus2.png",
-        imageUrl2:"images/product_02/school_bus2.png",
-		imageUrl3:"images/product_02/school_bus2_int1.jpg",
+        imageUrl2:"images/product_02/school_bus2_int1.jpg",
+		imageUrl3:"",
         imageUrl4:""
 	  },
 	  price:"KWD 27,850",oldPrice:"",
@@ -1073,9 +960,9 @@
 	  description:"(45-seater) ",
 	  images: {
 		imageUrl1:"images/product_02/citybus.jpg",
-        imageUrl2:"images/product_02/citybus.jpg",
-		imageUrl3:"images/product_02/luxury_int_1.jpg",
-        imageUrl4:"images/product_02/luxury_int_1.jpg"
+        imageUrl2:"images/product_02/luxury_int_1.jpg",
+		imageUrl3:"",
+        imageUrl4:""
 	  },
 	  price:"KWD 48,430",oldPrice:"KWD 51,210",
       vehicleDetails :{
@@ -1141,15 +1028,11 @@
 									</div>
 								</div>
 							</div>
-							<div class="tt-label-location">
-								<span class="tt-label-promo">Great Deal!</span>
-							</div>
+						
 							</div>
 							<div class="tt-layout-preview d-none d-sm-block">
 								<div class="tt-product-single-img">
-									<div class="tt-label-location">
-										<span class="tt-label-promo">Great Deal!</span>
-									</div>
+									
 									<div>
 										<img class="zoom-product" src="${modelData[modelType][0].images.imageUrl1}" data-zoom-image="${modelData[modelType][0].images.imageUrl1}" alt="">
 									</div>
@@ -1160,22 +1043,7 @@
 										<li><a href="#" data-image="${modelData[modelType][0].images.imageUrl2}" data-zoom-image="${modelData[modelType][0].images.imageUrl2}"><img src="${modelData[modelType][0].images.imageUrl2}" alt="" /></a></li>
 										<li><a href="#" data-image="${modelData[modelType][0].images.imageUrl3}" data-zoom-image="${modelData[modelType][0].images.imageUrl3}"><img src="${modelData[modelType][0].images.imageUrl3}" alt="" /></a></li>
 										<li><a href="#" data-image="${modelData[modelType][0].images.imageUrl4}" data-zoom-image="${modelData[modelType][0].images.imageUrl4}"><img src="${modelData[modelType][0].images.imageUrl4}" alt="" /></a></li>
-										<li>
-											<div class="video-link-product" data-toggle="modal" data-type="youtube" data-target="#modalVideoProduct" data-value="http://www.youtube.com/embed/bQz2Er3K8t8">
-												<img src="images/product_02/product_03_05.jpg" alt="">
-												<div>
-													<i class="icon-play"></i>
-												</div>
-											</div>
-										</li>
-										<li>
-											<div class="video-link-product" data-toggle="modal" data-type="video" data-target="#modalVideoProduct" data-value="video/video.mp4" data-poster="video/video_img.jpg">
-												<img src="images/product_02/product_03_05.jpg" alt="">
-												<div>
-													<i class="icon-play"></i>
-												</div>
-											</div>
-										</li>
+										
 									</ul>
 								</div>
 							</div>
@@ -1203,36 +1071,14 @@
 									<h6 class="tt-title-subpages">Vehicle Overview</h6>
 									${modelData[modelType][0].overview}
 								</div>
-								<div class="tt-box-indent">
-									<div class="row">
-										<div class="col-lg-9">
-											<h6 class="tt-title-subpages">
-												Contact Us About this Car
-											</h6>
-											<form class="tt-form-default tt-form-review">
-												<div class="tt-form-aside">
-													<div class="form-group">
-														<input type="text" name="name" class="form-control" placeholder="Your name">
-													</div>
-													<div class="form-group">
-														<input type="email" name="name" class="form-control" placeholder="Your e-mail">
-													</div>
-													<div class="form-group">
-														<textarea name="message" class="form-control" placeholder="Your question" id="textareaMessage"></textarea>
-													</div>
-													<a href="#" class="btn">ask question</a>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
+								
 							</div>
 						</div>
 					<div class="divider divider-md d-block d-md-none"></div>
 					<div class="col-12 col-md-4">
 						<div class="tt-aside03-layout">
 							<div class="tt-aside-btn hidden-xs">
-								<a href="#" class="btn btn-color02" data-toggle="modal" data-target="#modalAddTestDrive"><i class="icon-testdrive"></i>test drive</a>
+								<button class="btn btn-color02" data-toggle="modal" data-target="#modalAddTestDrive" onclick="requestDrive('${modelData[modelType][0].name}','${modelData[modelType][0].description}')"><i class="icon-testdrive"></i>test drive</button>
 								<!-- <a href="#" class="compare-toggle btn btn-color02"><i class="icon-compare"></i>compare</a> -->
 							</div>
 							<div class="tt-aside-promo">
@@ -1287,7 +1133,7 @@
 							</div>
 							<div class="tt-aside-btn">
 								<!-- <a href="services-item.html" class="btn btn-fullwidth"><i class="icon-tradein2"></i>trade-in service</a> -->
-								<a href="#" class="btn btn-color02 btn-fullwidth" data-toggle="modal" data-target="#modalOfferPrice"><i class="icon-price-tag1"></i>Request A Quote</a>
+								<button href="#" class="btn btn-color02 btn-fullwidth" data-toggle="modal" data-target="#modalOfferPrice" onclick="requestForm('${modelData[modelType][0].name}','${modelData[modelType][0].description}')"><i class="icon-price-tag1"></i>Request A Quote</button>
 							</div>
 						</div>
 					</div>
@@ -1297,6 +1143,21 @@
 
    const data = getmodelDetails();
    displayData(data);
+</script>
+<script>
+	function requestForm(name,description){
+		let ddlModel = document.getElementById('model');
+		let title = document.getElementById('modelTitle');
+		ddlModel.value= name + ' ' + description;
+		title.textContent = name + ' ' + description;
+	}
+
+	function requestDrive(name,description){
+		let modelName = document.getElementById('td_model');
+        let testDate = document.getElementById('td_date');
+		modelName.value=name + ' ' + description;
+	}
+
 </script>
 <script src="external/jquery/jquery.min.js"></script>
 <script src="external/bootstrap/js/bootstrap.min.js"></script>

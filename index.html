@@ -16,6 +16,7 @@
 		href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;600;700&display=swap"
 		rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="./httpServices.js" defer></script>
 </head>
 
 <body>
@@ -209,6 +210,16 @@
 				</div>
 			</div>
 		</div>
+
+			<!-- Success Popup Modal -->
+<div id="successPopup" class="popup-modal">
+	<div class="popup-content">
+		<h2 style="color:green">Submission Successful!</h2>
+		<p>Your request has been successfully submitted.</p>
+	</div>
+</div>
+
+<!-- success pop up ends here -->
 		<div class="container-indent no-margin" id="js-searchfilter">
 			<div class="tt-search-filter-wrapper">
 				<div class="container tt-container-fluid-mobile">
@@ -221,77 +232,82 @@
 							</div>
 							<div class="tt-close">Close</div>
 						</div>
-						<div class="tt-col-select visible-desctope tt-skinSelect-01">
+						<form class="tt-col-select visible-desctope tt-skinSelect-01" method="post" id="modelEnquiryForm" action="#">
 							<input type="text" style="width: 180px; margin-left: 20px;" name="name" class="form-control"
-								placeholder="Full Name">
+								placeholder="Full Name*" id="name" required>
 							<input type="text" style="width: 180px; margin-left: 20px;" name="email"
-								class="form-control" placeholder="Email">
+								class="form-control" placeholder="Email*" id="email" required>
 							<!-- one select -->
 							<input type="text" style="width: 180px; margin-left: 20px;" name="phone"
-								class="form-control" placeholder="Phone">
+								class="form-control" placeholder="Phone*" id="phone" required>
 							<!-- /one select -->
 							<!-- one select -->
-							<select class="tt-select">
-								<option disabled="disabled" selected="selected">Select a Model</option>
+							<select class="form-control" style="width: 180px; margin-left: 20px;" id="model" required>
+								<option disabled="disabled" selected="selected" Value="General Enquiry">Select a Model*</option>
 								<!--placeholder-->
-								<option value="Sedan">Sedan</option>
-								<option value="Hatchback">Hatchback</option>
-								<option value="Sport Cars">Sport Cars</option>
-								<option value="Suv">Suv</option>
-								<option value="Pickups">Pickups</option>
-								<option value="Convertible">Convertible</option>
-								<option value="Coupe">Coupe</option>
-								<option value="Minivan">Minivan</option>
+								<option value="Luxury Business Bus (27+1 -seater)">Luxury Business Bus (27+1 -seater)</option>
+								<option value="Coach Bus (49+1+1 -seater)">Coach Bus (49+1+1 -seater)</option>
+								<option value="City Bus (30-seater)">City Bus (30-seater)</option>
+								<option value="City Bus (45-seater)">City Bus (45-seater)</option>
+								<option value="Staff Bus (35+1-seater)">Staff Bus (35+1-seater)</option>
+								<option value="School Bus (18-28 seater)">School Bus (18-28 seater)</option>
+								<option value="School Bus (40-seater)">School Bus (40-seater)</option>
+								<option value="Labour Bus (55+1 -seater)">Labour Bus (55+1 -seater)</option>
 							</select>
 							<!-- /one select -->
+							<div class="">
+								<button  type="submit" class="form-control" style="width: 180px; margin-left: 20px;background: #dd3d53;color:white;border:1px solid #dd3d53;" 
+								 value="submit" onclick="submitModelEnquiry('enquiry1',event)"><span
+										class="icon-musica-searcherq"></i><span>&nbsp;</span>Submit</button>
+							</div>
 
-						</div>
+						</form>
+						
 						<div class="tt-col-select visible-device tt-skinSelect-01">
 							<div class="tt-custom-mobile">
 								<div class="tt-col-6">
-									<input type="text" style="width: 180px; margin-left: 20px;" name="name"
-										class="form-control" placeholder="Full Name">
+									<input type="text" style="width: 180px; margin-left: 20px;" name="name" id="mob_name"
+										class="form-control" placeholder="Full Name*" required>
 								</div>
 								<div class="tt-col-6">
-									<input type="text" style="width: 180px; margin-left: 20px;" name="email"
-										class="form-control" placeholder="Email">
+									<input type="text" style="width: 180px; margin-left: 20px;" name="email" id="mob_email"
+										class="form-control" placeholder="Email*" required>
 								</div>
 								<div class="tt-col-6">
 									<!-- one select -->
-									<input type="text" style="width: 180px; margin-left: 20px;" name="phone"
-										class="form-control" placeholder="Phone">
+									<input type="text" style="width: 180px; margin-left: 20px;" name="phone" id="mob_phone"
+										class="form-control" placeholder="Phone*" required>
 									<!-- /one select -->
 								</div>
 								<div class="tt-col-6">
 									<!-- one select -->
-									<select class="tt-select">
-										<option disabled="disabled" selected="selected">Model</option>
+									<select class="tt-select" id="mob_model" required>
+										<option disabled="disabled" selected="selected" Value="General Enquiry">Select a Model*</option>
 										<!--placeholder-->
-										<option value="Sedan">Sedan</option>
-										<option value="Hatchback">Hatchback</option>
-										<option value="Sport Cars">Sport Cars</option>
-										<option value="Suv">Suv</option>
-										<option value="Pickups">Pickups</option>
-										<option value="Convertible">Convertible</option>
-										<option value="Coupe">Coupe</option>
-										<option value="Minivan">Minivan</option>
+										<option value="Luxury Business Bus (27+1 -seater)">Luxury Business Bus (27+1 -seater)</option>
+										<option value="Coach Bus (49+1+1 -seater)">Coach Bus (49+1+1 -seater)</option>
+										<option value="City Bus (30-seater)">City Bus (30-seater)</option>
+										<option value="City Bus (45-seater)">City Bus (45-seater)</option>
+										<option value="Staff Bus (35+1-seater)">Staff Bus (35+1-seater)</option>
+										<option value="School Bus (18-28 seater)">School Bus (18-28 seater)</option>
+										<option value="School Bus (40-seater)">School Bus (40-seater)</option>
+										<option value="Labour Bus (55+1 -seater)">Labour Bus (55+1 -seater)</option>
 									</select>
 									<!-- /one select -->
 								</div>
 								<div class="tt-col-12">
 									<div class="tt-btn">
-										<a href="#" class="btn tt-icon-left"><i
-												class="icon-musica-searcherq"></i><span>&nbsp;</span>Submit</a>
+										<button type="submit" class="btn tt-icon-left" onclick="submitModelEnquiry('enquiry2',event)" value="submit"><i
+												class="icon-musica-searcherq"></i><span>&nbsp;</span>Submit</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="tt-col-btn">
-							<a href="#" class="btn tt-icon-left"><i class="icon-musica-searcher"></i><span
-									lass="icon-musica-searcherq"></i><span>&nbsp;</span>Submit</a>
-						</div>
+						
 					</div>
+					<p id="txtErrorEnquiry" style="color:red;padding-top:10px;padding-bottom:10px;text-align: center;display:none;"> Please fill all the required fields *</p>
 				</div>
+				
 			</div>
 		</div>
 		<div class="container-indent no-margin" id="js-searchfilter">
@@ -482,8 +498,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<img class="d-block d-md-none"
-							src="assets/images/205290708_318603336531783_924121434945087256_n.jpg" alt="">
+						<img class="d-block d-md"
+							src="assets/images/whatweoffer.jpg" alt="">
 					</div>
 					<div class="divider divider-md d-block d-md-none"></div>
 					<div class="col-md-6">
@@ -747,58 +763,48 @@
 					<p>
 						Please complete the form below and an we will contact you to arrange your service.
 					</p>
-					<form>
+					<form id="bookService" method="post" action="#">
 						<div class="tt-form-default">
 							<div class="form-group">
-								<input type="text" name="name" class="form-control" placeholder="Your name*">
+								<input type="text" name="name" class="form-control" placeholder="Your name*" id="bs_name">
 							</div>
 							<div class="row">
 								<div class="col-12 col-sm-6">
 									<div class="form-group">
-										<input type="email" name="name" class="form-control" placeholder="E-mail*">
+										<input type="email" name="name" class="form-control" placeholder="E-mail*" id="bs_email">
 									</div>
 								</div>
 								<div class="col-12 col-sm-6">
 									<div class="form-group">
-										<input type="text" name="name" class="form-control" placeholder="Phone #">
+										<input type="text" name="name" class="form-control" placeholder="Phone #" id="bs_phone">
 									</div>
 								</div>
+								<div class="col-12">
+									<div class="form-group">
+										<select class="form-group" id="bs_model" required >
+											<option disabled="disabled" selected="selected" Value="General Enquiry">Select a Model</option>
+											<!--placeholder-->
+											<option value="Luxury Business Bus (27+1 -seater)">Luxury Business Bus (27+1 -seater)</option>
+											<option value="Coach Bus (49+1+1 -seater)">Coach Bus (49+1+1 -seater)</option>
+											<option value="City Bus (30-seater)">City Bus (30-seater)</option>
+											<option value="City Bus (45-seater)">City Bus (45-seater)</option>
+											<option value="Staff Bus (35+1-seater)">Staff Bus (35+1-seater)</option>
+											<option value="School Bus (18-28 seater)">School Bus (18-28 seater)</option>
+											<option value="School Bus (40-seater)">School Bus (40-seater)</option>
+											<option value="Labour Bus (55+1 -seater)">Labour Bus (55+1 -seater)</option>
+										</select>
+									</div>
+								</div>
+
 							</div>
 						</div>
 						<h6 class="tt-title">Preferred date and time of service</h6>
 						<div class="tt-row-calendar tt-form-default tt-skinSelect-01">
-							<input type="text" name="name" class="form-control" placeholder="12 / 12 / 2018">
-							<select class="tt-select">
-								<option value="01" disabled selected>12</option>
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-								<option value="05">05</option>
-								<option value="06">06</option>
-							</select>
-							<span class="tt-text-separator">:</span>
-							<select class="tt-select">
-								<option value="01" disabled selected>30</option>
-								<option value="02">02</option>
-								<option value="03">03</option>
-								<option value="04">04</option>
-								<option value="05">05</option>
-								<option value="06">06</option>
-							</select>
+							<input type="datetime-local" name="name" class="form-control" id="bs_date">
 						</div>
-						<ul class="list-form-column">
-							<li>
-								<div class="checkbox-group">
-									<input type="checkbox" id="checkBox12" name="checkbox" checked>
-									<label for="checkBox12">
-										<span class="check"></span>
-										<span class="box"></span>
-										I agree to receive emails from ZhongTong
-									</label>
-								</div>
-							</li>
-						</ul>
-						<a href="#" class="btn">submit</a>
+						<button class="btn" type="submit" value="submit">Submit</button>
+						<p id="txtSuccessMessage" style="color:green;padding-top:10px;padding-bottom:10px;display: none;"> Submitted Successfully</p>
+						<p id="txtErrorBookService" style="color:red;padding-top:10px;padding-bottom:10px;display: none;"> Please fill all the required fields *</p>
 					</form>
 				</div>
 			</div>

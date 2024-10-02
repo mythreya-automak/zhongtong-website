@@ -11,6 +11,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="./httpServices.js" defer></script>
 </head>
 <body>
 
@@ -1439,12 +1440,12 @@
 					<div style="display: flex; flex-direction: row; justify-content: center;">
 						<div style="display: flex; flex-direction: column; justify-content: center;">
 							<a class="popup-with-zoom-anim" href="#" data-toggle="modal"
-								data-target="#modalAddTestDrive">
+								data-target="#modalBookService">
 								<i class="fa-solid fa-calendar-days fa-2xl"
 									style="color: #ff0000; margin: 50px;"></i>
 							</a>
 							<a class="popup-with-zoom-anim" href="#" data-toggle="modal"
-								data-target="#modalAddTestDrive">
+								data-target="#modalBookService">
 								<h4 style="text-align: center;">Book a Service</h4>
 							</a>
 						</div>
@@ -1723,75 +1724,7 @@
 		</div>
 	</div>
 </div>
-<!-- modal (AddTestDrive) -->
-<div class="modal fade" id="modalAddTestDrive" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-md">
-		<div class="modal-content ">
-			<div class="modal-body modal-layout-dafault">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="icon-close"></span></button>
-				<h5 class="modal-title">Book a Test Drive</h5>
-				<p>
-					Please complete the form below and an we will contact you to arrange your test drive.
-				</p>
-				<h2 style="color: red;">Model XYZ</h2>
-				<form>
-					<div class="tt-form-default">
-						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your name*">
-						</div>
-						<div class="row">
-							<div class="col-12 col-sm-6">
-								<div class="form-group">
-									<input type="email" name="name" class="form-control" placeholder="E-mail*">
-								</div>
-							</div>
-							<div class="col-12 col-sm-6">
-								<div class="form-group">
-									<input type="text" name="name" class="form-control" placeholder="Phone #">
-								</div>
-							</div>
-						</div>
-					</div>
-					<h6 class="tt-title">Preferred date and time of Test Drive</h6>
-					<div class="tt-row-calendar tt-form-default tt-skinSelect-01">
-						<input type="text" name="name" class="form-control" placeholder="12 / 12 / 2018">
-						<select class="tt-select">
-							<option value="01" disabled selected>12</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-						<span class="tt-text-separator">:</span>
-						<select class="tt-select">
-							<option value="01" disabled selected>30</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-					</div>
-					<ul class="list-form-column">
-						<li>
-							<div class="checkbox-group">
-								<input type="checkbox" id="checkBox12" name="checkbox" checked>
-								<label for="checkBox12">
-								<span class="check"></span>
-								<span class="box"></span>
-								I agree to receive emails from ZhongTong
-								</label>
-							</div>
-						</li>
-					</ul>
-					<a href="#" class="btn">Submit</a>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- modal (modalRequest) -->
+
 <div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-label="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-md">
 		<div class="modal-content ">
@@ -1851,59 +1784,48 @@
 				<p>
 					Please complete the form below and an we will contact you to arrange your service.
 				</p>
-				<h2 style="color: red;">Model XYZ</h2>
-				<form>
+				<form id="bookService" method="post" action="#">
 					<div class="tt-form-default">
 						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your name*">
+							<input type="text" name="name" class="form-control" placeholder="Your name*" id="bs_name">
 						</div>
 						<div class="row">
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="email" name="name" class="form-control" placeholder="E-mail*">
+									<input type="email" name="name" class="form-control" placeholder="E-mail*" id="bs_email">
 								</div>
 							</div>
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="text" name="name" class="form-control" placeholder="Phone #">
+									<input type="text" name="name" class="form-control" placeholder="Phone #" id="bs_phone">
 								</div>
 							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<select class="form-group" id="bs_model" required >
+										<option disabled="disabled" selected="selected" Value="General Enquiry">Select a Model</option>
+										<!--placeholder-->
+										<option value="Luxury Business Bus (27+1 -seater)">Luxury Business Bus (27+1 -seater)</option>
+										<option value="Coach Bus (49+1+1 -seater)">Coach Bus (49+1+1 -seater)</option>
+										<option value="City Bus (30-seater)">City Bus (30-seater)</option>
+										<option value="City Bus (45-seater)">City Bus (45-seater)</option>
+										<option value="Staff Bus (35+1-seater)">Staff Bus (35+1-seater)</option>
+										<option value="School Bus (18-28 seater)">School Bus (18-28 seater)</option>
+										<option value="School Bus (40-seater)">School Bus (40-seater)</option>
+										<option value="Labour Bus (55+1 -seater)">Labour Bus (55+1 -seater)</option>
+									</select>
+								</div>
+							</div>
+
 						</div>
 					</div>
 					<h6 class="tt-title">Preferred date and time of service</h6>
 					<div class="tt-row-calendar tt-form-default tt-skinSelect-01">
-						<input type="text" name="name" class="form-control" placeholder="12 / 12 / 2018">
-						<select class="tt-select">
-							<option value="01" disabled selected>12</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-						<span class="tt-text-separator">:</span>
-						<select class="tt-select">
-							<option value="01" disabled selected>30</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
+						<input type="datetime-local" name="name" class="form-control" id="bs_date">
 					</div>
-					<ul class="list-form-column">
-						<li>
-							<div class="checkbox-group">
-								<input type="checkbox" id="checkBox12" name="checkbox" checked>
-								<label for="checkBox12">
-								<span class="check"></span>
-								<span class="box"></span>
-								I agree to receive emails from ZhongTong
-								</label>
-							</div>
-						</li>
-					</ul>
-					<a href="#" class="btn">submit</a>
+					<button class="btn" type="submit" value="submit">Submit</button>
+					<p id="txtSuccessMessage" style="color:green;padding-top:10px;padding-bottom:10px;display: none;"> Submitted Successfully</p>
+					<p id="txtErrorBookService" style="color:red;padding-top:10px;padding-bottom:10px;display: none;"> Please fill all the required fields *</p>
 				</form>
 			</div>
 		</div>
@@ -1974,15 +1896,13 @@ function createModelHTML(model) {
             <div class="tt-image-box">
                 <a href="car-spec.html?modelType=${model.id}" class="tt-img">
                     <img src="${model.imageURL}" alt="">
-                    <span class="tt-label-location">
-                        <span class="tt-label-promo">Great Deal!</span>
-                    </span>
+                    
                     <span class="tt-data">118,000 miles</span>
                 </a>
                 <ul class="tt-icon">
-                    <li><a href="#" data-toggle="modal" data-target="#modalAddTestDrive" title="test-drive" class="tooltip"><i class="icon-testdrive"></i></a></li>
-                    <li><a href="${model.imageURL}" title="gallery" class="tooltip tt-btn-zomm"><i class="icon-photo-camera"></i></a></li>
-                    <li><a href="#" title="compare" class="tooltip compare-toggle"><i class="icon-compare"></i></a></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
                 <div class="tt-additional-block">
                     <div class="tt-row-02">

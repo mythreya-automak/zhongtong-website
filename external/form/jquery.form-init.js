@@ -17,53 +17,52 @@ jQuery(function($) {
 			objMessage.removeClass('tt-active');
 		}, 3600);
 	};
-	var formContactForm = $('#contactform');
-	if (formContactForm.length){
-		formContactForm.validate({
-			rules: {
-				name: {
-					required: true,
-					minlength: 2
-				},
-				email: {
-					required: true,
-					email: true
-				},
-				message: {
-					required: true,
-				}
-			},
-			messages: {
-				name: {
-					required: "Please enter your name",
-					minlength: "Your name must consist of at least 2 characters"
-				},
-				email: {
-					required: "Please enter your email"
-				},
-				message: {
-					required: "Please enter your message"
-				}
-			},
-			submitHandler: function(form) {
-				$(form).ajaxSubmit({
-					type:"POST",
-					data: $(form).serialize(),
-					url:"external/form/contact-form.php",
-					success: function() {
-						  $('#success').fadeIn();
-							 formContactForm.each(function(){this.reset();});
-							 successForm(formContactForm);
-					},
-					error: function() {
-						$('#contactform').fadeTo( "slow", 1, function() {
-							$('#error').fadeIn();
-						});
-					}
-				});
-			}
-		});
-	};
+	// var formContactForm = $('#contactform');
+	// if (formContactForm.length){
+	// 	formContactForm.validate({
+	// 		rules: {
+	// 			name: {
+	// 				required: true,
+	// 				minlength: 2
+	// 			},
+	// 			email: {
+	// 				required: true,
+	// 				email: true
+	// 			},
+	// 			message: {
+	// 				required: true,
+	// 			}
+	// 		},
+	// 		messages: {
+	// 			name: {
+	// 				required: "Please enter your name",
+	// 				minlength: "Your name must consist of at least 2 characters"
+	// 			},
+	// 			email: {
+	// 				required: "Please enter your email"
+	// 			},
+	// 			message: {
+	// 				required: "Please enter your message"
+	// 			}
+	// 		},
+	// 		submitHandler: function(form) {
+	// 			$(form).ajaxSubmit({
+	// 				type:"POST",
+	// 				data: $(form).serialize(),
+	// 				url:"http://localhost:3000/zhongtong/submit-enquiry",
+	// 				success: function() {
+	// 					  $('#success').fadeIn();
+							 
+	// 				},
+	// 				error: function() {
+	// 					$('#contactform').fadeTo( "slow", 1, function() {
+	// 						$('#error').fadeIn();
+	// 					});
+	// 				}
+	// 			});
+	// 		}
+	// 	});
+	// };
 	var newsletterform = $('#newsletterform');
 	if (newsletterform.length){
 		newsletterform.validate({

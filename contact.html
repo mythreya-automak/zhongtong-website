@@ -14,6 +14,7 @@
 		href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400;500;600;700&display=swap"
 		rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="./httpServices.js" defer></script>
 </head>
 
 <body>
@@ -174,6 +175,15 @@
 			</ul>
 		</div>
 	</div>
+		<!-- Success Popup Modal -->
+<div id="successPopup" class="popup-modal">
+	<div class="popup-content">
+		<h2 style="color:green">Submission Successful!</h2>
+		<p>Your request has been successfully submitted.</p>
+	</div>
+</div>
+
+<!-- success pop up ends here -->
 	<div id="tt-pageContent">
 		<div class="section-wrapper-01">
 			<div class="container-indent">
@@ -269,29 +279,29 @@
 								class="tt-form-default tt-form-review">
 								<div class="tt-form-aside">
 									<div class="form-group">
-										<input type="text" name="name" class="form-control" id="inputName"
-											placeholder="Your name">
+										<input type="text" name="name" class="form-control" id="name"
+											placeholder="Your name*" required>
 									</div>
 									<div class="row">
 										<div class="col-md-6">
 											<div class="form-group">
-												<input type="email" name="email" class="form-control" id="inputEmail"
-													placeholder="Your e-mail">
+												<input type="email" name="email" class="form-control" id="email"
+													placeholder="Your e-mail*" required>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<input type="text" name="phone" class="form-control"
-													placeholder="Your phone">
+												<input type="text" name="phone" id="phone" class="form-control"
+													placeholder="Your phone*" required>
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
-										<textarea name="message" class="form-control" placeholder="Your message"
-											id="textareaMessage"></textarea>
+										<textarea name="message" class="form-control" placeholder="Your message*"
+											id="message" required></textarea>
 									</div>
-									<button type="submit" class="btn btn-wide">send message</button>
-									<div class="tt-modal-message">Form sent successfully</div>
+									<button type="submit" class="btn btn-wide" value="submit">send message</button>
+									<p id="txtErrorMessage" style="color:red;padding-top:10px;padding-bottom:10px;display: none;"> Please fill all the required fields *</p>
 								</div>
 							</form>
 						</div>
@@ -300,6 +310,7 @@
 			</div>
 		</div>
 	</div>
+
 	<footer id="tt-footer">
 		<div class="tt-mobile-hidden">
 			<div class="tt-map">
@@ -573,63 +584,56 @@
 				<p>
 					Please complete the form below and an we will contact you to arrange your service.
 				</p>
-				<form>
+				<form id="bookService" method="post" action="#">
 					<div class="tt-form-default">
 						<div class="form-group">
-							<input type="text" name="name" class="form-control" placeholder="Your name*">
+							<input type="text" name="name" class="form-control" placeholder="Your name*" id="bs_name" required>
 						</div>
 						<div class="row">
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="email" name="name" class="form-control" placeholder="E-mail*">
+									<input type="email" name="name" class="form-control" placeholder="E-mail*" id="bs_email" required>
 								</div>
 							</div>
 							<div class="col-12 col-sm-6">
 								<div class="form-group">
-									<input type="text" name="name" class="form-control" placeholder="Phone #">
+									<input type="text" name="name" class="form-control" placeholder="Phone #" id="bs_phone" required>
 								</div>
 							</div>
+							<div class="col-12">
+								<div class="form-group">
+									<select class="form-group" id="bs_model" required >
+										<option disabled="disabled" selected="selected" Value="General Enquiry">Select a Model</option>
+										<!--placeholder-->
+										<option value="Luxury Business Bus (27+1 -seater)">Luxury Business Bus (27+1 -seater)</option>
+										<option value="Coach Bus (49+1+1 -seater)">Coach Bus (49+1+1 -seater)</option>
+										<option value="City Bus (30-seater)">City Bus (30-seater)</option>
+										<option value="City Bus (45-seater)">City Bus (45-seater)</option>
+										<option value="Staff Bus (35+1-seater)">Staff Bus (35+1-seater)</option>
+										<option value="School Bus (18-28 seater)">School Bus (18-28 seater)</option>
+										<option value="School Bus (40-seater)">School Bus (40-seater)</option>
+										<option value="Labour Bus (55+1 -seater)">Labour Bus (55+1 -seater)</option>
+									</select>
+								</div>
+							</div>
+
 						</div>
 					</div>
 					<h6 class="tt-title">Preferred date and time of service</h6>
 					<div class="tt-row-calendar tt-form-default tt-skinSelect-01">
-						<input type="text" name="name" class="form-control" placeholder="12 / 12 / 2018">
-						<select class="tt-select">
-							<option value="01" disabled selected>12</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
-						<span class="tt-text-separator">:</span>
-						<select class="tt-select">
-							<option value="01" disabled selected>30</option>
-							<option value="02">02</option>
-							<option value="03">03</option>
-							<option value="04">04</option>
-							<option value="05">05</option>
-							<option value="06">06</option>
-						</select>
+						<input type="datetime-local" name="name" class="form-control" id="bs_date">
 					</div>
-					<ul class="list-form-column">
-						<li>
-							<div class="checkbox-group">
-								<input type="checkbox" id="checkBox12" name="checkbox" checked>
-								<label for="checkBox12">
-								<span class="check"></span>
-								<span class="box"></span>
-								I agree to receive emails from ZhongTong
-								</label>
-							</div>
-						</li>
-					</ul>
-					<a href="#" class="btn">submit</a>
+					<button class="btn" type="submit" value="submit">Submit</button>
+					<p id="txtSuccessMessage" style="color:green;padding-top:10px;padding-bottom:10px;display: none;"> Submitted Successfully</p>
+					<p id="txtErrorBookService" style="color:red;padding-top:10px;padding-bottom:10px;display: none;"> Please fill all the required fields *</p>
+
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
+
+
 	<script src="external/jquery/jquery.min.js"></script>
 	<script src="external/bootstrap/js/bootstrap.min.js"></script>
 	<script src="external/slick/slick.min.js"></script>

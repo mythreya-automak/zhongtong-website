@@ -304,6 +304,28 @@ template {
 [hidden] {
   display: none !important; }
 
+
+ #successPopup {
+    position: absolute;
+    z-index: 100;
+    display: none; /* Initially hidden */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /*background-color: rgba(0, 0, 0, 0.1); /* Overlay */
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+  max-width: 500px;
+  width: 90%; /* Responsive width */
+  text-align: center;
+}
+
 .container {
   width: 100%;
   padding-right: 15px;
@@ -11904,7 +11926,7 @@ body.is-loaded .loading-content {
       min-width: 210px;
       position: relative;
       overflow: hidden;
-      padding: 0px 0 0 75px; }
+      padding: 0px 0 0 50px; }
       .tt-search-filter > div.tt-col-title span {
         font-weight: normal;
         font-family: "Roboto", sans-serif;
