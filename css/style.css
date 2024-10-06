@@ -23058,12 +23058,28 @@ p + .divider {
 /*
 	Parallax
 */
+
+.tt-img-parallax-left-about {
+  position: relative;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .tt-img-parallax-left-about .tt-img-main {
+    position: relative;
+    max-width: 82.3%;
+    margin-top: 30px; }
+
 .tt-img-parallax-left {
-  position: relative; }
+  position: relative;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
   .tt-img-parallax-left .tt-img-main {
     position: relative;
     max-width: 82.3%;
-    margin-top: 4px; }
+    margin-top: 90px; }
   .tt-img-parallax-left .tt-img-sub {
     position: absolute;
     bottom: -88px;
@@ -23145,11 +23161,12 @@ p + .divider {
   -ms-flex-align: start;
   align-items: flex-start;
   position: relative;
-  padding-left: 30px; }
+  padding-left: 30px; 
+  height:100%;}
   .tt-img-parallax-right .tt-img-main {
     position: relative;
     max-width: 469px;
-    margin-top: 4px; }
+    margin-top: 100px; }
   .tt-img-parallax-right .tt-img-sub {
     position: absolute;
     top: 10.5%;
@@ -23184,6 +23201,10 @@ p + .divider {
       color: #222222; }
     .tt-img-parallax-right .tt-box-custom:hover .tt-title {
       color: #dd3d53; }
+    .offer{
+      margin-top:120px;
+    }
+
   @media (max-width: 1024px) {
     .tt-img-parallax-right {
       margin-bottom: 68px;
