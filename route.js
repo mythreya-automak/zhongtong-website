@@ -1,6 +1,7 @@
 
 var express = require('express');
 var ZtFunctions = require('./html-handler');
+const path = require('path');
 var bodyParser = require('body-parser')
 var cors = require('cors');
 var router = express.Router();
@@ -11,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', router);
 
-
+// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // app.post('/zhongtong/submit-enquiry',(req,res)=>{
 //     let record = { ...req.body }
 //    ZtFunctions.addEnquiry(record, res).then(result => {
@@ -216,7 +217,7 @@ router.route('/zhongtong/update-general-enquiry').put((req, res) => {
 // })
 
 router.route('/zhongtong/update-model-enquiry').put((req, res) => {
-    ZtFunctions.updateGenEnquiry(req,res);
+    ZtFunctions.updateModelEnquiry(req,res);
  });
 
 // app.put("/zhongtong/update-model-enquiry",(req,res)=>{
@@ -238,6 +239,24 @@ router.route('/zhongtong/update-service-enquiry').put((req, res) => {
 // app.put("/zhongtong/update-service-enquiry",(req,res)=>{
 //     ZtFunctions.updateServiceEnquiry(req,res);
 // })
+
+//Zhongtong CMS
+
+router.route('/zhongtong-cms/get-global-header').get((req, res) => {
+    ZtFunctions.getGlobalHeader(req, res);
+ });
+
+ router.route('/zhongtong-cms/get-global-footer').get((req, res) => {
+    ZtFunctions.getGlobalFooter(req, res);
+ });
+
+router.route('/zhongtong-cms/update-global-header').put((req, res) => {
+    ZtFunctions.updateGlobalHeader(req, res);
+ });
+
+ router.route('/zhongtong-cms/update-global-footer').put((req, res) => {
+    ZtFunctions.updateGlobalFooter(req, res);
+ });
 
 
 app.listen(3000,()=>{

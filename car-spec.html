@@ -76,9 +76,10 @@
 			<div class="row no-gutters align-items-center">
 				<div class="col-auto mr-auto">
 					<ul class="tt-box-info">
-						<li><i class="icon-149984"></i>Shuwaikh Industrial-1 Block 2, Street 12, Plot 108</li>
-						<li><a href="#"><i class="icon-15874"></i>Call Us: (+965) 1845555</a></li>
-						<li><i class="icon-icon"></i>Sat - Thu: 08:00AM - 8:00PM</li>
+						<li ><a href="#" id="header_location_1" target="_blank"><i class="icon-149984"></i><span></span></a></li>
+						<!-- <i class="icon-149984" style="color:red"></i>&nbsp;<li id="header_location_1"></li> -->
+						<li><a href="#"><i class="icon-15874"></i>Call Us: <span id="header_phone"></span></a></li>
+						<li><i class="icon-icon"></i><span id="header_time"></span></li>
 					</ul>
 				</div>
 				<div class="col-auto">
@@ -94,7 +95,7 @@
 				<!--logo-->
 				<div class="col-logo col-auto">
 					<a class="tt-logo" href="index.html">
-						<img src="./assets/images/ZNlogo1.png" alt="">
+						<img src="" alt="">
 					</a>
 				</div>
 				<!--desctope-menu-->
@@ -111,7 +112,6 @@
 								<li>
 									<a href="all-models.html">All Models</a>
 								</li>
-								
 								<li>
 									<a href="offers.html">Offers</a>
 								</li>
@@ -357,27 +357,27 @@
 			<div class="row justify-content-center">
 				<div class="col col-auto">
 					<a class="tt-logo" href="http://www.automak.com/home.aspx" target="_blank">
-						<img class="tt-logo-dark svg-img" src="./assets/images/automakwhite.png" alt="">
+						<img class="tt-logo-dark svg-img" id="footer_img" src="" alt="">
 					</a>
 				</div>
 			</div>
 			<div class="tt-row-custom">
 				<div class="tt-col">
 					<ul class="tt-list-info">
-						<li>
+						<li class="footer_location1">
 							<i class="icon-149984"></i>
-							Shuwaikh Industrial-1 Block 2, Street 12, Plot 108
+							<span style="color:white"></span>
 						</li>
 						<li>
-							<a href="#">
+							<a href="#" class="phone">
 								<i class="icon-15874"></i>
-								(+965) 1845555
+								<span style="color:white"></span>
 							</a>
 						</li>
 						<li>
-							<a href="mailto:info@youremal.com">
+							<a href="mailto:info@automak.com" class="footer_email">
 								<i class="icon-mail"></i>
-								info@automak.com
+								<span style="color:white"></span>
 							</a>
 						</li>
 					</ul>
@@ -385,9 +385,9 @@
 				<div class="tt-col">
 					<div class="tt-box-info">
 						<div class="tt-item">
-							<h6 class="tt-ttile"><i class="icon-icon"></i>Sales Department</h6>
+							<h6 class="tt-ttile" id="department_1"><i class="icon-icon"></i></h6>
 							<ul>
-								<li>Sat - Thu: 08:00AM - 8:00PM
+								<li id="department_1_time">
 								</li>
 								<li> </li>
 							</ul>
@@ -397,9 +397,9 @@
 				<div class="tt-col">
 					<div class="tt-box-info">
 						<div class="tt-item">
-							<h6 class="tt-ttile"><i class="icon-icon"></i>Service Department</h6>
+							<h6 class="tt-ttile" id="department_2"><i class="icon-icon"></i></h6>
 							<ul>
-								<li>Sat - Thu: 08:00AM - 8:00PM
+								<li id="department_2_time" >
 								</li>
 								<li> </li>
 							</ul>
@@ -426,22 +426,27 @@
 				<div class="col col-auto">
 					<h5 style="text-align: center; color: white;">Follow Us On</h5>
 					<ul class="tt-social-icon">
-						<li><a href="https://www.facebook.com/" target="_blank" class="icon-226234"></a></li>
-						<li><a href="https://twitter.com" target="_blank" class="icon-8800"></a></li>
-						<li><a href="https://www.google.com/" target="_blank" class="icon-733613"></a></li>
-						<li><a href="https://www.google.com/" target="_blank" class="fa-brands fa-instagram"></a></li>
-						<li><a href="https://www.google.com/" target="_blank" class="fa-brands fa-whatsapp"></a></li>
+						<li><a href="https://www.facebook.com/" target="_blank" id="facebook" class="icon-226234"></a></li>
+						<li><a href="https://twitter.com" target="_blank" id="twitter" class="icon-8800"></a></li>
+						<li><a href="https://www.google.com/" target="_blank" id="google" class="icon-733613"></a></li>
+						<li><a href="https://www.google.com/" target="_blank" id="instagram" class="fa-brands fa-instagram"></a>
+						</li>
+						<li><a href="https://www.google.com/" target="_blank" id="whatsapp" class="fa-brands fa-whatsapp"></a>
+						</li>
 					</ul>
 				</div>
 			</div>
 			<div style="margin-top: 20px;" class="row justify-content-center">
-				<p style="color: white;">Automak serves as an authorized distributor for ZhongTong. Please visit our corporate <a href="http://www.automak.com/home.aspx" target="_blank" style="color: rgb(255, 255, 255); text-decoration: underline;">website</a> for additional information.<br /> </p>
+				<p style="color: white;">Automak serves as an authorized distributor for ZhongTong. Please visit our
+					corporate <a href="http://www.automak.com/home.aspx" target="_blank"
+						style="color: rgb(255, 255, 255); text-decoration: underline;">website</a> for additional
+					information.<br /> </p>
 			</div>
 		</div>
 	</div>
 	<div class="tt-footer-copyright">
-		<div class="container">
-			<span>&copy; Copyright © 2024 All rights reserved | AUTOMAK 2024</span> <a href="#">Privacy Policy</a>
+		<div class="container" >
+			<span id="footer_note">&copy; </span> <a href="#">Privacy Policy</a>
 		</div>
 	</div>
 </footer>
@@ -1004,7 +1009,7 @@
 							<div class="tt-description">${modelData[modelType][0].description} </div>
 						</div>
 						<div class="tt-aside-btn visible-xs">
-							<a href="#" class="btn btn-color02" data-toggle="modal" data-target="#modalAddTestDrive"><i class="icon-testdrive"></i>test drive</a>
+							<a href="#" class="btn btn-color02" data-toggle="modal" data-target="#modalAddTestDrive"><i class="icon-testdrive"></i>Test drive</a>
 							<!-- <a href="#" class="btn btn-color02 compare-toggle"><i class="icon-compare"></i>compare</a> -->
 						</div>
 						<!-- mobile product slider  -->
@@ -1076,7 +1081,7 @@
 					<div class="col-12 col-md-4">
 						<div class="tt-aside03-layout">
 							<div class="tt-aside-btn hidden-xs">
-								<button class="btn btn-color02" data-toggle="modal" data-target="#modalAddTestDrive" onclick="requestDrive('${modelData[modelType][0].name}','${modelData[modelType][0].description}')"><i class="icon-testdrive"></i>test drive</button>
+								<button class="btn btn-color02" data-toggle="modal" data-target="#modalAddTestDrive" onclick="requestDrive('${modelData[modelType][0].name}','${modelData[modelType][0].description}')"><i class="icon-testdrive"></i>Test drive</button>
 								<!-- <a href="#" class="compare-toggle btn btn-color02"><i class="icon-compare"></i>compare</a> -->
 							</div>
 							<div class="tt-aside-promo">
@@ -1169,5 +1174,7 @@
 <script src="external/form/jquery.form.js"></script>
 <script src="external/form/jquery.validate.min.js"></script>
 <script src="external/form/jquery.form-init.js"></script>
+<script src="js/data-global.js"></script>
+
 </body>
 </html>

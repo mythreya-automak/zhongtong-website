@@ -1,7 +1,9 @@
 
-// const baseUrl = 'http://localhost:3000/zhongtong/';
+  const baseURL = 'https://api.jmc.com.kw/api/zhongtong/'
+  
+//  var basePath = 'http://localhost:3000';
 
-const baseURL = basePath + '/zhongtong/'
+// const baseURL = basePath + '/zhongtong/'
 
 document.addEventListener('DOMContentLoaded',function(){
     const form = document.getElementById('contactform');
