@@ -672,6 +672,147 @@ async function updateGlobalFooter(req, res) {
     });
 }
 
+//Zhongtong slider
+
+async function createOffer(req, res) {
+    upload.single('image')(req, res, async (err) => {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to upload image.' });
+        }
+
+        const { file } = req;
+        const { updated_by, caption, caption_ar } = req.body;
+
+        if (!file || !updated_by) {
+            return res.status(400).json({ error: 'Image file and updated_by are required.' });
+        }
+
+        try {
+            let pool = await sql.connect(dbConfig);
+
+            const imageName = file.filename;
+            const imagePath = path.join('uploads', file.filename);
+
+            await pool.request()
+                .input('image_name', sql.VarChar(255), imageName)
+                .input('image_path', sql.VarChar(255), imagePath)
+                .input('updated_by', sql.VarChar(100), updated_by)
+                .input('caption', sql.VarChar(100), caption)
+                .input('caption_ar', sql.NVarChar(sql.MAX), caption_ar)
+                .query(`
+                    INSERT INTO [CMS_ZHONGTONG].[dbo].[TBL_OFFERS_SLIDER]
+                        (IMAGE_NAME, IMAGE_PATH, CAPTION, CAPTION_AR, SEQUENCE, IS_ACTIVE, CREATED_AT, UPDATED_AT, UPDATED_BY)
+                    VALUES
+                        (@image_name, @image_path, @caption, @caption_ar,  1, 1, GETDATE(), GETDATE(), @updated_by);
+                `);
+
+            res.status(201).json({ message: 'Image uploaded and record created successfully.' });
+        } catch (err) {
+            console.error('Error uploading image and creating record:', err.message);
+            res.status(500).json({ error: 'Failed to upload image and create record.' });
+        } finally {
+            sql.close();
+        }
+    });
+}
+
+
+async function updateOffer(req, res) {
+    upload.single('image')(req, res, async (err) => {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to upload image.' });
+        }
+
+        const { file } = req;
+        const { recid, updated_by, is_active, caption, caption_ar } = req.body;
+
+        if (!updated_by || is_active === undefined) {
+            return res.status(400).json({ error: 'updated_by and is_active are required.' });
+        }
+
+        try {
+            let pool = await sql.connect(dbConfig);
+
+            let query = `
+                UPDATE [CMS_ZHONGTONG].[dbo].[TBL_OFFERS_SLIDER]
+                SET UPDATED_AT = GETDATE(),
+                    UPDATED_BY = @updated_by,
+                    IS_ACTIVE = @is_active,
+                    CAPTION = @caption,
+                    CAPTION_AR = @caption_ar
+            `;
+
+            if (file && file.filename) {
+                const imageName = file.filename;
+                const imagePath = path.join('uploads', file.filename);
+                query += `,
+                    IMAGE_NAME = @image_name,
+                    IMAGE_PATH = @image_path
+                `;
+            }
+
+            query += ' WHERE RECID = @recid;';
+
+            let request = pool.request()
+                .input('updated_by', sql.VarChar(100), updated_by)
+                .input('is_active', sql.Bit, is_active)
+                .input('caption', sql.VarChar(100), caption)
+                .input('caption_ar', sql.NVarChar(sql.MAX), caption_ar);
+
+            if (file && file.filename) {
+                const imageName = file.filename;
+                const imagePath = path.join('uploads', file.filename);
+                request = request
+                    .input('image_name', sql.VarChar(255), imageName)
+                    .input('image_path', sql.VarChar(255), imagePath);
+            }
+
+            if (recid) {
+                request = request.input('recid', sql.Int, recid);
+            }
+
+            await request.query(query);
+
+            res.status(200).json({ message: 'Offer updated successfully.' });
+        } catch (err) {
+            console.error('Error updating offer:', err.message);
+            res.status(500).json({ error: 'Failed to update offer.' });
+        } finally {
+            sql.close();
+        }
+    });
+}
+
+async function getOffers(req, res) {
+    const { recid } = req.query;
+
+    try {
+        let pool = await sql.connect(dbConfig);
+
+        let query = 'SELECT * FROM [CMS_ZHONGTONG].[dbo].[TBL_OFFERS_SLIDER]';
+
+        if (recid) {
+            query += ' WHERE RECID = @recid';
+        }
+
+        let request = pool.request();
+
+        if (recid) {
+            request = request.input('recid', sql.Int, parseInt(recid, 10));
+        }
+
+        const result = await request.query(query);
+
+        res.status(200).json(result.recordset);
+    } catch (err) {
+        console.error('Error retrieving offers:', err.message);
+        res.status(500).json({ error: 'Failed to retrieve offers.' });
+    } finally {
+        sql.close();
+    }
+}
+
+
 
 module.exports ={
     addEnquiry: addEnquiry,
@@ -693,4 +834,7 @@ module.exports ={
     updateGlobalHeader:updateGlobalHeader,
     getGlobalFooter:getGlobalFooter,
     updateGlobalFooter:updateGlobalFooter,
+    createOffer:createOffer,
+    updateOffer:updateOffer,
+    getOffers:getOffers,
 }

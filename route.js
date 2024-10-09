@@ -258,6 +258,22 @@ router.route('/zhongtong-cms/update-global-header').put((req, res) => {
     ZtFunctions.updateGlobalFooter(req, res);
  });
 
+ // Offer slider
+
+
+router.route('/zhongtong-cms/create-offer').post((req, res) => {
+    ZtFunctions.createOffer(req, res);
+ });
+ 
+ router.route('/zhongtong-cms/update-offer').put((req, res) => {
+    ZtFunctions.updateOffer(req, res);
+ });
+ 
+ 
+ router.route('/zhongtong-cms/get-offers').get((req, res) => {
+    ZtFunctions.getOffers(req, res);
+ });
+
 
 app.listen(3000,()=>{
     console.log("Server is running")

@@ -102,6 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
         logo.src = uploadPath + data.FOOTER_LOGO_NAME;
         logo.srcset = uploadPath + data.FOOTER_LOGO_NAME;
         logo.alt = 'Footer Logo';
+
+        //contact details
+        document.getElementById('contact_location1').innerHTML=data.FOOTER_LOCATION_1;
+        document.getElementById('contact_location2').innerHTML=data.FOOTER_LOCATION_1;
+        document.getElementById('contact_phone').innerHTML=data.PHONE;
+        document.getElementById('contact_email').innerHTML=data.EMAIL;
+        document.getElementById('contact_time1').innerText = data.DEPARTMENT_2_TIME;
+        document.getElementById('contact_time2').innerText = data.DEPARTMENT_1_TIME;
+        document.getElementById('contact_facebook').href = data.FACEBOOK_URL;
+        document.getElementById('contact_twitter').href = data.TWITTER_URL;
+        document.getElementById('contact_google').href = data.GOOGLE_URL;
+
     }
 
     fetchHeaderData();
